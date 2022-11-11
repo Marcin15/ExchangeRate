@@ -1,0 +1,30 @@
+<div class="theme-wrapper"
+     [ngClass]="{'dark-theme' : isDarkTheme}">
+     <div class="container">
+        <span>Set a date range</span>
+        <mat-form-field appearance="fill" class="date-form">
+          <mat-label>Choose a start date</mat-label>
+          <input matInput 
+                 [matDatepicker]="dateFrom" 
+                 [formControl]="dateFromHandler"
+                 [min] = "minDate"
+                 [max]="dateToHandler.value"
+                 (dateChange)="datepickerFromDateChange()">
+          <mat-hint>YYYY-MM-DD</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="dateFrom"></mat-datepicker-toggle>
+          <mat-datepicker #dateFrom></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="date-form"> 
+          <mat-label>Choose an end date</mat-label>
+          <input matInput 
+                 [matDatepicker]="dateTo" 
+                 [formControl]="dateToHandler"
+                 [min]="dateFromHandler.value"
+                 [max]="today"
+                 (dateChange)="datepickerToDateChange()">
+          <mat-hint>YYYY-MM-DD</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="dateTo"></mat-datepicker-toggle>
+          <mat-datepicker #dateTo></mat-datepicker>
+        </mat-form-field>
+    </div>
+</div>

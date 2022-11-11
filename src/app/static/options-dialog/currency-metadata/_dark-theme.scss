@@ -1,0 +1,12 @@
+@use './variables' as *;
+
+@mixin dark-theme {
+    .currency-metadata {
+        background-color: $background-color-dark;
+        color: $color-dark;
+
+        &-click {
+            background-color: $background-color-clicked-dark;
+        }
+    }
+}

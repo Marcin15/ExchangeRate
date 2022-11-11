@@ -1,0 +1,23 @@
+<app-time-series-header></app-time-series-header>
+<div class="chart-container">
+    <ng-container *ngIf="isFinalized; else loader">
+        <app-chart *ngFor="let chartData of timeSeriesResponse"
+                    class="chart"
+                    [timeSeriesData]="chartData"
+                    data-aos="fade-up">
+        </app-chart>
+    </ng-container>
+</div>
+
+<ng-template #loader>
+    <div class="loader-box">
+        <div class="loader-title loading"></div>
+        <div class="loader-subtitle loading"></div>
+        <div class="loader-chart loading"></div>
+    </div>
+    <div class="loader-box">
+        <div class="loader-title loading"></div>
+        <div class="loader-subtitle loading"></div>
+        <div class="loader-chart loading"></div>
+    </div>
+</ng-template>

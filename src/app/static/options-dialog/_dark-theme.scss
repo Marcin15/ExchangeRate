@@ -1,0 +1,48 @@
+@use './variables' as *;
+
+@mixin dark-theme {
+    .icon-tabler-x {
+        stroke: #fff;
+    }
+
+    .options {
+        background-color: $option-dialog-bg-dark;
+        box-shadow: 0 0 10px 1px $options-box-shadow-color-dark;
+    }
+
+    .header-bar {
+        .search-bar-container {
+            background-color: $search-bar-bg-dark;
+            
+            .search-bar {
+                color: $search-bar-color-dark;
+
+                &::placeholder {
+                    color: $placeholder-color-dark;
+                }
+            }
+        } 
+
+        .icon-tabler-search {
+            background-color: $search-bar-icon-bg-dark;
+            stroke: $search-bar-icon-stroke-dark;
+        }
+    }
+
+    .currency-container {
+        &:hover {
+            color: $scrollbar-color-dark;
+        }   
+    }
+    .options-bar {
+        background-color: $options-bar-bg-dark;
+
+        &::before {
+            box-shadow: 0px -3px 4px $options-box-shadow-color-dark;
+        }
+    }
+
+    .empty-search-results {
+        color: $empty-search-results-color-dark;
+    }
+}

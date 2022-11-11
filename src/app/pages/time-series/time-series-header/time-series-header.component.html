@@ -1,0 +1,28 @@
+<div class="container"
+     [ngClass]="{'dark-theme': isDarkTheme}">
+    <div class="chart-wrapper">
+        <div class="yAxis-chart-wrapper">
+            <div class="yAxis-data-container">
+                <ng-container *ngFor="let data of yAxisData">
+                    <span class="yAxis-data axis-data">{{data}}</span>
+                </ng-container>
+            </div>
+            <div class="canvas-chart">
+                <canvas baseChart
+                    [data]="chartData"
+                    [options]="chartOptions"
+                    [type]="chartType">
+                </canvas>
+            </div>
+        </div>
+        <div class="xAxis-data-container">
+            <ng-container *ngFor="let data of xAxisData">
+                <span class="xAxis-data axis-data">{{data}}</span>
+            </ng-container>
+        </div>
+    </div>
+    <div class="text-area-wrapper">
+        <h1 class="title"><span>Exchange rates</span> at your fingertips!</h1>
+        <span class="text-area">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque vitae ab distinctio vel, porro sequi debitis quibusdam ea aliquam alias? Dolor illo illum amet unde nulla praesentium laudantium nemo dolore.</span>
+    </div>
+</div>

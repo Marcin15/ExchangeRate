@@ -1,0 +1,13 @@
+@use './variables' as *;
+@use './dark-theme' as *;
+
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.dark-theme {
+    @include dark-theme;
+}

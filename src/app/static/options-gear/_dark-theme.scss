@@ -1,0 +1,8 @@
+@use './variables' as *;
+
+@mixin dark-theme {
+    .options-gear-container {
+        background-color: $bg-options-dark;
+        border-color: $border-color-options-dark;
+    }
+}

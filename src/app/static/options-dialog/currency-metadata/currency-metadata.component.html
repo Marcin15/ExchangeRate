@@ -1,0 +1,9 @@
+<div class="container"
+     [ngClass]="{'dark-theme': isDarkTheme | async}">
+    <button class="currency-metadata"
+            [ngClass]="{'currency-metadata-click': currencyMetadata.isSelected}"
+            (click)="onClick()">
+        <span class="symbol">{{currencyMetadata.currencyISOCode}}</span>
+        <span class="full-name">{{currencyMetadata.currencyName}}</span>
+    </button>
+</div>

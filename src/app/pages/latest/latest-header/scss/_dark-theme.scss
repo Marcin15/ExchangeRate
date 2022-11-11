@@ -1,0 +1,7 @@
+@use './variables' as *;
+
+@mixin dark-theme {
+    .text-area-wrapper {
+        color: $text-area-color-dark;
+    }
+}

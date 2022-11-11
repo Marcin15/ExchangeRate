@@ -1,0 +1,152 @@
+@use './scss/variables' as *;
+@use './scss/dark-theme' as *;
+@use './scss/animations/axis-label-fadeIn-animation' as *;
+@use './scss/animations/text-area-animation' as *;
+
+
+.container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.canvas-chart {
+    position: relative;
+    width: 830px;
+    height: 415px;
+}
+
+.chart-wrapper {
+    width: 60%;
+    position: relative;
+    margin-left: 40px;
+    padding: 10px;
+    color: $chart-axis-data-color;
+}
+
+.axis-data {
+    user-select: none;
+    font-size: 13px;
+}
+
+.yAxis-chart-wrapper {
+    display: flex
+}
+
+.yAxis-data-container {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 41.5px;
+    margin-right: 10px;
+    margin-top: 2px;
+
+    .yAxis-data {
+        opacity: 0;
+
+        @for $i from 0 to 9 {
+            &:nth-last-child(n + #{$i}) {
+                @include axis-label-animation($i * 0.35s + 1.45s);
+            }
+        }
+    }
+
+    &>*::after {
+        content: '$';
+    }
+}
+
+.xAxis-data-container {
+    display: flex;
+    margin-top: 22px;
+    gap: 71px;
+
+    .xAxis-data {
+        transform: rotate(-90deg + 45deg);
+        opacity: 0;
+        white-space: nowrap;
+
+        @for $i from 0 to 8 {
+            &:nth-child(n + #{$i}) {
+                @include axis-label-animation($i * 0.4s + 1.5s);
+            }
+        }
+    
+        &:last-child {
+            margin-left: -13px;
+        }
+    }
+}
+
+.text-area-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 40%;
+    color: $text-area-color;
+
+    .title {
+        font-size: 24px;
+        font-weight: 600;
+        @include title-fade-in-animation;
+        span {
+            @include title-highlight-color-change-animation;
+        }
+    }
+    
+    .text-area {
+        font-size: 18px;
+        width: 80%;
+        margin-top: 20px;
+        opacity: 0;
+        @include text-area-fade-in-animation;
+    }
+}
+
+.dark-theme {
+    @include dark-theme;
+}
+
+@media (max-width: 1400px) {
+    .canvas-chart {
+        width: 700px;
+    }
+
+    .xAxis-data-container {
+        gap: 50px;
+    }
+}
+
+@media (max-width: 1235px) {
+    .canvas-chart {
+        width: 600px;
+    }
+
+    .xAxis-data-container {
+        gap: 34px;
+    }
+}
+
+@media (max-width: 1115px) {
+    .canvas-chart {
+        width: 500px;
+    }
+
+    .xAxis-data-container {
+        gap: 17px;
+    }
+}
+
+@media (max-width: 900px)
+{
+    .chart-wrapper {
+        display: none;
+    }
+
+    .text-area-wrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+}

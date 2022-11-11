@@ -1,0 +1,11 @@
+@use './variables' as *;
+
+@mixin dark-theme {
+    .chart-wrapper {
+        color: $chart-axis-data-color-dark;
+    }
+
+    .text-area-wrapper {
+        color: $text-area-color-dark;
+    }
+}

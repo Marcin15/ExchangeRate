@@ -1,0 +1,5 @@
+@use './variables' as *;
+
+@mixin dark-theme {
+    background-color: $bg-main-dark;
+}

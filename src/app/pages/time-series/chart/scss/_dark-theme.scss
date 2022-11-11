@@ -1,0 +1,8 @@
+@use './variables' as *;
+
+@mixin dark-theme {
+    .chart {
+        background-color: $bg-chart-dark;
+        box-shadow: 0 0 15px #000;
+    }
+}

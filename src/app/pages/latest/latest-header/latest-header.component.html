@@ -1,0 +1,103 @@
+<div class="container"
+     [ngClass]="{'dark-theme': isDarkTheme | async}">
+    <div class="table">
+        <div class="table-header table-element">
+            <span>Rank</span>
+            <span>Name</span>
+            <span>Symbol</span>
+            <span>Latest rate</span>
+            <span>Rate change</span>
+        </div>
+        <div class="table-body">
+            <div class="table-body-row table-element">
+                <span class="rank">1</span>
+                <span class="name">Euro</span>
+                <span class="symbol">EUR</span>
+                <span class="latest-rate">1.12$</span>
+                <div class="rate-change-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-up increase" 
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" 
+                    stroke-linecap="round" stroke-linejoin="round"> 
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/> 
+                        <line x1="12" y1="5" x2="12" y2="19" /> 
+                        <line x1="16" y1="9" x2="12" y2="5" /> 
+                        <line x1="8" y1="9" x2="12" y2="5" /> 
+                    </svg>
+                    <span class="rate-change">0.03$</span>
+                </div>
+            </div>
+            <div class="table-body-row table-element">
+                <span class="rank">2</span>
+                <span class="name">Chinese Yuan</span>
+                <span class="symbol">CNY</span>
+                <span class="latest-rate">0.15$</span>
+                <div class="rate-change-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-up decrease"  
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" 
+                    stroke-linecap="round" stroke-linejoin="round" transform="scale(1, -1)"> 
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/> 
+                        <line x1="12" y1="5" x2="12" y2="19" /> 
+                        <line x1="16" y1="9" x2="12" y2="5" /> 
+                        <line x1="8" y1="9" x2="12" y2="5" /> 
+                    </svg>
+                    <span class="rate-change">0.01$</span>
+                </div>
+            </div>
+            <div class="table-body-row table-element">
+                <span class="rank">3</span>
+                <span class="name">British Pound Sterling</span>
+                <span class="symbol">GBP</span>
+                <span class="latest-rate">1.31$</span>
+                <div class="rate-change-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-up increase" 
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" 
+                    stroke-linecap="round" stroke-linejoin="round"> 
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/> 
+                        <line x1="12" y1="5" x2="12" y2="19" /> 
+                        <line x1="16" y1="9" x2="12" y2="5" /> 
+                        <line x1="8" y1="9" x2="12" y2="5" /> 
+                    </svg>
+                    <span class="rate-change">0.02$</span>
+                </div>
+            </div>
+            <div class="table-body-row table-element">
+                <span class="rank">4</span>
+                <span class="name">Swiss Franc</span>
+                <span class="symbol">CHF</span>
+                <span class="latest-rate">1.01$</span>
+                <div class="rate-change-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-up increase" 
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" 
+                    stroke-linecap="round" stroke-linejoin="round"> 
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/> 
+                        <line x1="12" y1="5" x2="12" y2="19" /> 
+                        <line x1="16" y1="9" x2="12" y2="5" /> 
+                        <line x1="8" y1="9" x2="12" y2="5" /> 
+                    </svg>
+                    <span class="rate-change">0.01$</span>
+                </div>
+            </div>
+            <div class="table-body-row table-element">
+                <span class="rank">5</span>
+                <span class="name">Polish Zloty</span>
+                <span class="symbol">PLN</span>
+                <span class="latest-rate">0.26$</span>
+                <div class="rate-change-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-up decrease" 
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" 
+                    stroke-linecap="round" stroke-linejoin="round" transform="scale(1, -1)"> 
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/> 
+                        <line x1="12" y1="5" x2="12" y2="19" /> 
+                        <line x1="16" y1="9" x2="12" y2="5" /> 
+                        <line x1="8" y1="9" x2="12" y2="5" /> 
+                    </svg>
+                    <span class="rate-change">0.04$</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-area-wrapper">
+        <h1 class="title"><span>Exchange rates</span> at your fingertips!</h1>
+        <span class="text-area">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque vitae ab distinctio vel, porro sequi debitis quibusdam ea aliquam alias? Dolor illo illum amet unde nulla praesentium laudantium nemo dolore.</span>
+    </div>
+</div>

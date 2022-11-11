@@ -1,0 +1,143 @@
+@use './scss/variables' as *;
+@use './scss/dark-theme' as *;
+@use './scss/animations/table-animations' as *;
+@use './scss/animations/text-area-animation' as *;
+
+
+.container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    width: 860px;
+    margin-left: 50px;
+    border-radius: 16px;
+    user-select: none;
+
+    @include table-box-shadow-animation;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background-color: $table-header-bg;
+    border-radius: 16px 16px 0 0;
+    white-space: nowrap;
+    padding: 25px 0;
+
+    @include table-header-animation;
+}
+
+.table-body {
+    overflow: hidden;
+    border-radius: 0 0 16px 16px;
+
+    .table-body-row {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        justify-items: center;
+        align-items: center;
+        background-color: white;
+        border-bottom: 1px solid #aaa;
+        opacity: 0;
+        color: rgba(0, 0, 0, 0);
+        padding: 25px 0;
+
+        @for $i from 0 to 6 {
+            &:nth-child(n + #{$i}) {
+                @if $i % 2 == 0 {
+                    @include table-body-row-animation(true, $i*400 + 1000ms, $i*200 + 3200ms);
+                } @else {
+                    @include table-body-row-animation(false, $i*400 + 1000ms, $i*200 + 3200ms);
+                }
+            }
+        }
+
+        &:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+            
+        &:last-child {
+            border: none;
+        }
+    }
+}
+
+.name {
+    text-align: center;
+}
+
+.rate-change-container {
+    display: flex;
+    align-items: center;
+}
+
+.text-area-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 40%;
+    color: $text-area-color;
+
+    .title {
+        font-size: 24px;
+        font-weight: 600;
+        @include title-fade-in-animation;
+        
+        span {
+            @include title-highlight-color-change-animation;
+        }
+    }
+
+    .text-area {
+        font-size: 18px;
+        width: 80%;
+        margin-top: 20px;
+        opacity: 0;
+        @include text-area-fade-in-animation;
+    }
+}
+
+.dark-theme {
+    @include dark-theme;
+}
+
+// @media (max-width: 1400px) {
+//     .table {
+//         min-width: 700px;
+//     }
+// }
+
+// @media (max-width: 1235px) {
+//     .table {
+//         min-width: 600px;
+//     }
+// }
+
+// @media (max-width: 1115px) {
+//     .table {
+//         min-width: 500px;
+//     }
+// }
+
+@media (max-width: 900px)
+{
+    .table {
+        display: none;
+    }
+
+    .text-area-wrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+}

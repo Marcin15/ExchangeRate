@@ -1,0 +1,12 @@
+@use './scss/variables' as *;
+@use './scss/dark-theme' as *;
+
+.chart {
+    background-color: $bg-chart;
+    padding: 10px;
+    box-shadow: 0 0 15px #ddd;
+}
+
+.dark-theme {
+    @include dark-theme;
+}

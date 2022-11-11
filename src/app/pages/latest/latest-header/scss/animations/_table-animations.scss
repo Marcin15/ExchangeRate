@@ -1,0 +1,77 @@
+@mixin table-header-animation {
+    animation-name: table-header-animation-kf;
+    animation-duration: 1s;
+}
+
+@mixin table-body-row-animation($even, $delayRowTransform, $delayRowColor) {
+    @if $even == true {
+        animation-name: table-body-row-even-animation-kf, 
+                        table-body-row-font-color-animation-kf;
+    } @else {
+        animation-name: table-body-row-odd-animation-kf, 
+                        table-body-row-font-color-animation-kf;
+    }
+
+    animation-duration: 400ms, 500ms;
+    animation-delay: $delayRowTransform, $delayRowColor;
+    animation-fill-mode: forwards;
+}
+
+@mixin table-box-shadow-animation {
+    animation-name: table-box-shadow-animation-kf;
+    animation-duration: 600ms;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes table-box-shadow-animation-kf {
+    to {
+        box-shadow: 0 0 10px #000;
+    }
+}
+
+@keyframes table-header-animation-kf {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes table-body-row-even-animation-kf {
+    from {
+        transform: translateX(-860px);
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes table-body-row-odd-animation-kf {
+    from {
+        transform: translateX(860px);
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes table-body-row-font-color-animation-kf {
+    from {
+        color: rgba(0, 0, 0, 0);
+        stroke: rgba(0, 0, 0, 0);
+    }
+
+    to {
+        color: #000;
+        stroke: rgba(0, 0, 0, 1);
+    }
+}

@@ -1,0 +1,68 @@
+.chart-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(max(165px, 45vw), 1fr));
+    gap: 30px;
+    margin: 20px auto 0;
+}
+
+.loader-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 2.5 / 1;
+    background-color: #424242;
+    box-shadow: 0 0 15px black;
+    margin-bottom: 0;
+    padding: 0;
+
+    .loader-title {
+        width: 80px;
+        height: 14px;
+        margin-top: 15px;
+        background-color: #555;
+        overflow:hidden;
+    }
+
+    .loader-subtitle {
+        width: 30px;
+        height: 14px;
+        margin: 10px 0;
+        background-color: #555;
+        overflow:hidden;
+    }
+
+    .loader-chart {
+        position: relative;
+        width: 95%;
+        height: 100%;
+        aspect-ratio: 2/1;
+        margin-bottom: 2%;
+        background-color: #3b3b3b;
+        overflow: hidden;
+    }
+
+    .loading {
+        position: relative;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: translateX(-200%);
+            background: linear-gradient(90deg, transparent, rgba(120,120,120,0.1), transparent);
+            animation: loading 2s ease-in-out infinite;
+        }
+    }
+}
+
+@keyframes loading {
+    100% {
+        transform: translateX(100%);
+    }
+}

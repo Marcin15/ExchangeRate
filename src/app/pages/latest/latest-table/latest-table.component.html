@@ -1,0 +1,69 @@
+<div class="containerr">
+    <table>
+        <colgroup>
+            <col span="1" style="width: 13%;">
+            <col span="1" style="width: 13%;">
+            <col span="1" style="width: 13%;">
+            <col span="1" style="width: 13%;">
+            <col span="1" style="width: 13%;">
+            <col span="1">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Latest rate</th>
+                <th>Rate change</th>
+                <th>Last week</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="latestData; else loader">
+
+            </ng-container>
+            <tr *ngFor="let item of latestData; let thisIndex = index" data-aos="fade-zoom-in">
+                <td data-label="#"><span>{{thisIndex + 1}}</span></td>
+                <td data-label="Name"><span>{{item.name}}</span></td>
+                <td data-label="Symbol"><span>{{item.ISOCode}}</span></td>
+                <td data-label="Latest rate"><span>{{item.latestRate | number}}</span></td>
+                <td data-label="Rate change"><span>{{item.rateChange}}%</span></td>
+                <td class="chart-td">
+                    <div data-label="Last week" class="chart-container">
+                        <app-latest-table-chart [XAxisData]="item.dates"
+                                                [YAxisData]="item.latest7DaysRateValues">
+                        </app-latest-table-chart>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #loader>
+        <tr class="loader-table-row">
+            <td data-label="#"><span class="index-loader"></span></td>
+            <td data-label="Name"><span></span></td>
+            <td data-label="Symbol"><span></span></td>
+            <td data-label="Latest rate"><span></span></td>
+            <td data-label="Rate change"><span></span></td>
+            <td class="chart-td">
+                <div data-label="Last week" class="chart-container">
+                    <span></span>
+                </div>
+            </td>
+        </tr>
+        <tr class="loader-table-row">
+            <td data-label="#"><span class="index-loader"></span></td>
+            <td data-label="Name"><span></span></td>
+            <td data-label="Symbol"><span></span></td>
+            <td data-label="Latest rate"><span></span></td>
+            <td data-label="Rate change"><span></span></td>
+            <td class="chart-td">
+                <div data-label="Last week" class="chart-container">
+                    <span></span>
+                </div>
+            </td>
+        </tr>
+
+</ng-template>

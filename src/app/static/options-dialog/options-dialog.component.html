@@ -1,0 +1,94 @@
+<div @fadeInOutOverlay 
+     class="options-overlay" 
+     *ngIf="isOptionDialogVisible"
+     (click)="hideOptionsDialog()">
+</div>
+
+<div class="options-container"
+     [ngClass]="{'dark-theme': isDarkTheme | async}">
+    <div @fadeInOutDialog 
+         class="options"
+         *ngIf="isOptionDialogVisible">
+        <div class="header-bar">
+            <div class="left-items-wrapper">
+                <div class="search-bar-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="10" cy="10" r="7"></circle>
+                        <line x1="21" y1="21" x2="15" y2="15"></line>
+                     </svg>
+                    <input type="text" class="search-bar"
+                           placeholder="search..."
+                           (keyup)="filterCurrencyMetadata($event)">
+                </div>
+                <button class="date-picker-button tooltip" data-tooltip="Select a date range" 
+                        (click)="changeDatepieckerDialogVisibility()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="date-picker-svg icon icon-tabler icon-tabler-calendar" 
+                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" 
+                         fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+                        <line x1="16" y1="3" x2="16" y2="7"></line>
+                        <line x1="8" y1="3" x2="8" y2="7"></line>
+                        <line x1="4" y1="11" x2="20" y2="11"></line>
+                        <line x1="11" y1="15" x2="12" y2="15"></line>
+                        <line x1="12" y1="15" x2="12" y2="18"></line>
+                     </svg>
+                </button>
+            </div>
+            <div class="close-mark-container tooltip" data-tooltip="Close">
+                <svg (click)="hideOptionsDialog()" 
+                     xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" viewBox="0 0 24 24" 
+                     fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                 </svg>
+            </div>
+        </div>
+        <div class="currency-wrapper">
+            <div class="currency-container">
+                <ng-container *ngIf="!isSearchResultsEmpty; else emptySearchResults">
+                    <app-currency-metadata #currencyMetadataRef class="dark-theme"
+                        *ngFor="let currencyMetadata of currencyMetadataArray"
+                        [currencyMetadata]="currencyMetadata"
+                        [ngClass]="{hide: !currencyMetadata.isVisible}"
+                        (clickEvent)="clickCurrencyMetadataComponent($event)"
+                        >
+                    </app-currency-metadata>
+                </ng-container>
+            </div>
+        </div>
+        <div class="options-bar">
+            <div class="switcher-container">
+                <div (click)="clickBaseButton($event)" class="radio-button-wrapper">
+                    <input type="radio" name="currencyPicking" checked>
+                    <span>Base</span>
+                </div>
+                <div (click)="clickExchangeButton($event)" class="radio-button-wrapper">
+                    <input type="radio" name="currencyPicking">
+                    <span>Exchange</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf="isDatepickerDialogVisible | async">
+    <app-datepicker-dialog 
+        class="datepicker-dialog"
+        [initialDatesValues]="selectedDates"
+        (selectedDates)="getSelectedDates($event)"
+        @fadeInOutDialog>
+    </app-datepicker-dialog>
+    <div class="datepicker-dialog-overlay" 
+         (click)="changeDatepieckerDialogVisibility()"
+         @fadeInOutOverlay >
+    </div>
+</ng-container>
+
+<!-- Templates -->
+<ng-template #emptySearchResults>
+    <span class="empty-search-results">
+        Could not find any search results.
+    </span>
+</ng-template>

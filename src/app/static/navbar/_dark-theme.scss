@@ -1,0 +1,8 @@
+@use './variables' as *;
+
+@mixin dark-theme {
+    .theme-switcher {
+        background-color: $theme-switcher-bg-dark;
+        border-color: $theme-switcher-border-color-dark;
+    }
+}

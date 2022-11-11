@@ -1,0 +1,15 @@
+@mixin axis-label-animation($delay) {
+    animation-name: axis-labels-opacity;
+    animation-duration: 800ms;
+    animation-delay: $delay;
+    animation-fill-mode: forwards;
+}
+
+@keyframes axis-labels-opacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

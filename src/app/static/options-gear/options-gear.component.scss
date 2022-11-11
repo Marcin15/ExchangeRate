@@ -1,0 +1,52 @@
+@use './variables' as *;
+@use './dark-theme' as *;
+
+.options-gear-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $bg-options;
+    position: fixed;
+    width: $radius;
+    height: $radius;
+    border-radius: 50%;
+    border: 2px solid $border-color-options;
+    bottom: $margin;
+    right: $margin;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.base-currency-banner-container {
+    position: relative;
+}
+
+.base-currency-banner {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 16px;
+    top: -25px;
+    left: -22px;
+    border-radius: 5px;
+    font-size: 12px;
+    background-color: #F1B523;
+    user-select: none;
+}
+
+.options-gear {
+
+    height: $gearSize;
+    width: $gearSize;
+    transition: transform .5s ease;
+
+    &:hover {
+        transform: rotate(135deg) scale(1.1);
+    }
+}
+
+.dark-theme {
+    @include dark-theme;
+}

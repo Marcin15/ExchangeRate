@@ -1,0 +1,40 @@
+@use './scss/dark-theme' as *;
+
+.container {
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    gap: 20px;
+    width: 100%;
+    padding: 30px 5px;
+    box-shadow: 0 0 10px black;
+}
+
+span {
+    color: #000;
+    font-size: 20px;
+}
+
+::ng-deep.mat-form-field-ripple, 
+.mat-form-field-underline {
+    background-color: #000 !important;
+}
+
+ .date-form input {
+    caret-color: #000;
+ }
+
+
+mat-label {
+color: #666;
+}
+
+input {
+    color: #000;
+}
+
+.dark-theme {
+    @include dark-theme;
+}
